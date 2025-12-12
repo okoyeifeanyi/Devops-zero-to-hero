@@ -315,4 +315,171 @@ git push origin add-contact-info
 This uploads the add-contact-info branch and Jerry’s commit to GitHub so it’s available in the remote repository for review and merging into the main project.
 
 
-# Part 3: Merging Changes
+## Part 4: Merging Changes
+
+### Overview
+
+In this part of the project, **Tom and Jerry are collaborating on the same repository**.  
+Each of them works on a separate branch so their changes can be reviewed before being merged into `main`.
+
+In this section, I documented how **I created a Pull Request (PR) to add Tom’s changes from the `update-navigation` branch into the `main` branch**.
+
+### Context
+
+- **Tom’s branch:** `update-navigation`  
+  Tom has been working on updating the navigation of the website on this branch.
+- **Target branch:** `main`  
+  This is the main project branch that will receive Tom’s changes after review.
+
+Instead of merging directly, I used a **Pull Request** to follow a proper collaboration workflow.
+
+
+### Steps I Took to Create the Pull Request for Tom
+
+#### 1. Navigated to the GitHub Repository and switch to Tom's branch
+
+I opened my web browser and went to the GitHub page for the project repository.
+
+From the branch dropdown near the top-left of the file list, I selected **Tom’s branch**: `update-navigation`.
+
+This confirmed that I was looking at the changes Tom had pushed.
+
+![alt text](<img/33. merging changes.png>)
+
+Notice that the branch have been switched as seen below:
+
+![alt text](<img/34. switched branch.png>)
+
+### 2. Create a pull request by clicking the contribute icon to show the open pull request from the drop down.
+![alt text](<img/35. pull request.png>)
+
+Github will take me to a new page to initiate a pull request. It will automaticcally select the main project's branch as the base and my recently pushed branch as compare branch.
+
+### 3. Review Tom's changes
+I will reach out to Tom to ensure he has reviewed his changes to ensure eberythign is correct. As Hithun shows the differences between the base branch and Tom's branch. It is a good opportunity for Tom to double-check his work.
+
+#### 4. Set Base and Compare Branches
+
+I made sure the branches were set as:
+
+- **base:** `main`  
+- **compare:** `update-navigation`
+
+GitHub showed a message indicating that the branches were **able to merge**, meaning there were no merge conflicts between `main` and Tom’s `update-navigation` branch.
+
+![alt text](<img/36. create pull request.png>)
+
+### 5. Reviewing and Merging Tom’s Pull Request
+
+After I created the pull request for **Tom’s `update-navigation` branch**, it became visible to the rest of the team on GitHub. Other team members can now:
+
+- review the changes,
+- leave comments, and
+- request modifications if necessary.
+
+Once all my team were satisfied that Tom’s changes were correct and stable, I (or another collaborator with merge permissions) proceeded to merge the pull request. This action incorporated all of Tom’s updates from the `update-navigation` branch into the `main` branch.
+
+![alt text](<img/37. Pre merge request.png>)
+
+![alt text](<img/38. Tom's work merge completed.png>)
+
+
+This step demonstrates a typical DevOps collaboration workflow: work is done on a feature branch, reviewed through a pull request, and only then merged into the main project.
+
+### 6. Updating Jerry’s Branch with the Latest Changes
+
+After Tom’s changes were merged into `main`, **Jerry** also needed to prepare his work for merging. Jerry’s feature branch is called `add-contact-info`.
+
+Before merging Jerry’s branch into `main`, it is important to make sure his branch is **up to date** with the latest changes from `main`. This reduces the chances of merge conflicts and ensures that Jerry’s work is compatible with Tom’s updates.
+
+#### a. Steps I Took to Update Jerry’s Branch
+
+1. **Switched to Jerry’s Branch**
+
+   In the terminal, I first checked out Jerry’s branch:
+
+   ```
+   git checkout add-contact-info
+   ````
+  
+
+2. **Brought in the Latest Changes from main**
+
+With Jerry’s branch checked out, I updated it with the latest changes from main:
+
+```
+git pull origin main
+```
+This command fetched the latest changes from the main branch (including Tom’s updates) and merged them into Jerry’s add-contact-info branch. As a result, Jerry’s branch now had both:
+
+- his own changes, and
+
+- the most recent updates from main.
+
+
+
+If there had been any merge conflicts at this stage, I would have resolved them, tested the project, and committed the resolved state before moving on to create a pull request for Jerry’s branch.
+
+### 7. Finalising Jerry’s Contribution
+
+After updating **Jerry’s** branch (`add-contact-info`) with the latest changes from `main` and resolving any potential conflicts, his work was ready to be pushed to GitHub and merged into the main project.
+
+#### 1. Pushing the Updated Branch to GitHub
+
+To upload Jerry’s latest changes (which now included both his own work and Tom’s merged updates from `main`), I ran:
+
+```bash
+git push origin add-contact-info
+```
+
+![alt text](<img/39. git push - Jerry.png>)
+
+This command pushes the local add-contact-info branch to the remote repository named origin on GitHub.
+After this step, the remote branch contains:
+
+- Jerry’s feature changes, and
+
+- the most recent updates pulled from main.
+
+origin is the default name Git gives to the remote repository when the project is first cloned or when the remote is added.
+
+#### 2. Creating a Pull Request for Jerry’s Branch
+
+With the updated branch available on GitHub, I then:
+
+1.  Went to the repository on GitHub.
+
+2.  Opened the Pull requests tab and clicked on Compare & pull request.
+
+![alt text](<img/40. Creating a pull request for J branch.png>)
+
+3. Set:
+
+- base: main
+
+- compare: add-contact-info
+
+4. Reviewed the diff to confirm that the contact-info changes and the latest navigation updates were all present.
+
+5. Added a clear title and description explaining that this PR contains Jerry’s contact information feature, updated with the latest changes from main.
+
+![alt text](<img/41. PR for Jerrys branch.png>)
+
+6. Clicked Create pull request.
+
+![alt text](<img/42. PR successful.png>)
+
+#### 3. Merging Jerry’s Changes into main
+
+Once the pull request had been reviewed and approved, I completed the process by:
+
+Clicking Merge pull request, and
+
+Confirming the merge.
+![alt text](<img/43. confirm merge.png>)
+
+![alt text](<img/44. Merge successful.png>)
+
+At this point, the main branch contained contributions from both collaborators:
+
+Tom’s navigation updates, and Jerry’s contact information feature.
