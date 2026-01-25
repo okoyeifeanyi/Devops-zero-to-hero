@@ -170,8 +170,6 @@ Common issues checked:
 - Missing OAC / bucket policy permissions
 - Default root object not added
 
-:contentReference[oaicite:7]{index=7}
-
 ---
 
 ## 5) Results
